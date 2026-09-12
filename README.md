@@ -90,6 +90,14 @@ Known global minimum: f(0, 0) = 0
 - Tune `MUTATION_STRENGTH`, `PC`, `PM`, `POP_SIZE`, or `GENERATIONS`
   in `ackley_ga.py` to experiment with convergence speed/quality.
 
+## Contributors
+
+- Ishrat Binte Ahmed, Roll: 2107019
+- Adiba Tahsin, Roll: 2107031
+- Shahriar Aziz Khan, Roll: 2107034
+- Ayesha Mehereen, Roll: 2107039
+- Megha Tania, Roll: 2107057
+
 ## License
 
 MIT (or update to match your course/assignment requirements).
