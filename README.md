@@ -100,4 +100,4 @@ Known global minimum: f(0, 0) = 0
 
 ## License
 
-MIT (or update to match your course/assignment requirements).
+MIT.
