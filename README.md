@@ -34,6 +34,17 @@ test for optimization/search algorithms.
 | Mutation prob.    | 0.05 |
 | Elitism           | 1 (best individual preserved every generation) |
 
+### Objective value vs. GA fitness
+
+These are two different quantities and should not be confused:
+
+- **Ackley objective value `f(x)`** — **lower is better** (the global
+  minimum is 0). This is what the algorithm is minimizing and what is
+  reported as the result and plotted in the convergence graph.
+- **GA fitness** — **higher is better**. It is a transformed score used
+  only for roulette-wheel selection, so that a better (lower) objective
+  value gets a bigger slice of the wheel.
+
 Since the GA maximizes fitness but the Ackley function is a
 **minimization** target, fitness is computed as:
 
@@ -47,7 +58,9 @@ slice of the roulette wheel).
 ## Files
 
 - `ackley_ga.py` — full GA implementation, entry point
-- `ga_ackley_convergence.png` — example convergence plot (best fitness per generation)
+- `ga_ackley_convergence.png` — convergence plot showing the best Ackley
+  objective value found so far at each generation (note: this is the
+  objective value, **not** the transformed roulette-wheel fitness)
 
 ## Requirements
 
@@ -81,7 +94,12 @@ Generation 100 | Best f(x) so far = 0.025708 | x = (-0.0034, 0.0077)
 Best solution : x1 = -0.003354, x2 = 0.007725
 Ackley f(x)   : 0.025708
 Known global minimum: f(0, 0) = 0
+Distance from global optimum (0,0): 0.008422
 ```
+
+The last line is a verification metric only — the Euclidean distance
+`sqrt(x1² + x2²)` between the found solution and the known optimum. It is
+computed after the GA finishes and does not influence the search.
 
 ## Notes
 

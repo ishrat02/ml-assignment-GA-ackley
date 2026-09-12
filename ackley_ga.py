@@ -166,16 +166,22 @@ if __name__ == "__main__":
 
     best_x, best_f, history = genetic_algorithm()
 
+    # Verification metric only: Euclidean distance of the found solution
+    # from the known global optimum (0, 0). It does not affect selection,
+    # crossover, mutation, elitism or the GA in any way.
+    distance = np.sqrt(best_x[0] ** 2 + best_x[1] ** 2)
+
     print("\n===== RESULT =====")
     print(f"Best solution : x1 = {best_x[0]:.6f}, x2 = {best_x[1]:.6f}")
     print(f"Ackley f(x)   : {best_f:.6f}")
     print("Known global minimum: f(0, 0) = 0")
+    print(f"Distance from global optimum (0,0): {distance:.6f}")
 
     # Convergence plot
     plt.figure(figsize=(7, 5))
     plt.plot(history, linewidth=2)
     plt.xlabel("Generation")
-    plt.ylabel("Best Ackley value found so far")
+    plt.ylabel("Best Ackley objective value found so far")
     plt.title("GA Convergence on 2D Ackley Function")
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
